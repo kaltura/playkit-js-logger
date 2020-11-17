@@ -1,1 +1,1 @@
-declare type LogLevels = {[level: string]: LogLevelObject};
+declare type LogLevel = {[level: string]: LogLevelObject};

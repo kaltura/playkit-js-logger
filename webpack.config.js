@@ -14,15 +14,15 @@ const plugins = [
 module.exports = {
   context: __dirname + '/src',
   entry: {
-    'playkit-avplay': 'index.js'
+    'playkit-logger': 'index.js'
   },
   output: {
     path: __dirname + '/dist',
     filename: '[name].js',
-    library: ['playkit', 'avplay'],
+    library: ['playkit', 'logger'],
     libraryTarget: 'umd',
     umdNamedDefine: true,
-    devtoolModuleFilenameTemplate: './avplay/[resource-path]'
+    devtoolModuleFilenameTemplate: './logger/[resource-path]'
   },
   devtool: 'source-map',
   plugins: plugins,
@@ -51,13 +51,5 @@ module.exports = {
   },
   resolve: {
     modules: [path.resolve(__dirname, 'src'), 'node_modules']
-  },
-  externals: {
-    '@playkit-js/playkit-js': {
-      commonjs: '@playkit-js/playkit-js',
-      commonjs2: '@playkit-js/playkit-js',
-      amd: 'playkit-js',
-      root: ['KalturaPlayer', 'core']
-    }
   }
 };

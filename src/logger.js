@@ -1,17 +1,20 @@
 //@flow
-let getLogger: LoggerFunction = () => ({
-  trace: () => {},
-  debug: () => {},
-  info: () => {},
-  log: () => {},
-  warn: () => {},
-  error: () => {},
-  time: () => {},
-  timeEnd: () => {},
-  getLevel: () => {},
-  setLevel: () => {}
-});
-let getLogLevels = (): LogLevels => {};
+let JsLogger = {
+  getLogger: (): LoggerFunction => ({
+    trace: () => {},
+    debug: () => {},
+    info: () => {},
+    log: () => {},
+    warn: () => {},
+    error: () => {},
+    time: () => {},
+    timeEnd: () => {},
+    getLevel: () => {},
+    setLevel: () => {}
+  })
+};
+let logLevel: LogLevel = {};
+let LogLevelType: LogLevelTypes = {};
 
 /**
  * set logger
@@ -20,11 +23,25 @@ let getLogLevels = (): LogLevels => {};
  */
 function setLogger(logger: ?Logger): void {
   if (logger && typeof logger.getLogger === 'function') {
-    getLogger = logger.getLogger;
+    JsLogger.getLogger = logger.getLogger;
   }
-  if (logger && logger.LogLevels) {
-    getLogLevels = () => (logger.LogLevels)
+  if (logger && logger.logLevel) {
+    logLevel = logger.logLevel;
+    // Build the log level types enums according to the LogLevel object
+    Object.keys(logLevel).forEach(key => {
+      LogLevelType[key] = key;
+    });
   }
+}
+
+/**
+ * get a logger
+ * @param {string} name - the logger name
+ * @returns {Object} - the logger class
+ */
+function getLogger(name?: string): LoggerFunction {
+  //$FlowFixMe
+  return JsLogger.getLogger(name);
 }
 
 /**
@@ -46,4 +63,4 @@ function setLogLevel(level: LogLevelObject, name?: string): void {
   getLogger(name).setLevel(level);
 }
 
-export {getLogger, getLogLevel, setLogLevel, setLogger, getLogLevels};
+export {getLogger, getLogLevel, setLogLevel, setLogger, logLevel, LogLevelType};

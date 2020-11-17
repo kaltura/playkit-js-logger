@@ -1,7 +1,7 @@
 {
-  "name": "@playkit-js/playkit-js-avplay",
+  "name": "@playkit-js/playkit-js-logger",
   "version": "1.0.0",
-  "main": "dist/playkit-avplay.js",
+  "main": "dist/playkit-logger.js",
   "scripts": {
     "clean": "rm -rf ./dist",
     "prebuild": "npm run clean",
@@ -82,26 +82,20 @@
   },
   "keywords": [
     "kaltura",
-    "avplay",
     "player",
     "playkit-js",
-    "playkit-js-avplay",
-    "html5 player",
-    "tizen"
+    "html5 player"
   ],
   "license": "AGPL-3.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kaltura/playkit-js-avplay.git"
+    "url": "git+https://github.com/kaltura/playkit-js-logger.git"
   },
   "bugs": {
-    "url": "https://github.com/kaltura/playkit-js-avplay/issues"
+    "url": "https://github.com/kaltura/playkit-js-logger/issues"
   },
-  "homepage": "https://github.com/kaltura/playkit-js-avplay#readme",
+  "homepage": "https://github.com/kaltura/playkit-js-logger#readme",
   "kcc": {
-    "name": "playkit-avplay"
-  },
-  "dependencies": {
-    "base64-arraybuffer": "^0.2.0"
+    "name": "playkit-logger"
   }
 }

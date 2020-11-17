@@ -46,5 +46,4 @@ function setLogLevel(level: LogLevelObject, name?: string): void {
   getLogger(name).setLevel(level);
 }
 
-export default getLogger;
-export {getLogLevel, setLogLevel, setLogger, getLogLevels};
+export {getLogger, getLogLevel, setLogLevel, setLogger, getLogLevels};
